@@ -1,6 +1,6 @@
 {
-  "name": "developer-test",
   "homepage": "http://sylvainstak.github.io/developer-test",
+  "name": "developer-test",  
   "version": "0.1.0",
   "private": true,
   "dependencies": {

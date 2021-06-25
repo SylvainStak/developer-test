@@ -31,9 +31,7 @@ function PokemonCard(props) {
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.id}.png`}
-            //image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png`}
-            title="Contemplative Reptile"
+            image={`/developer-test/pokemon/${props.name}.png`}
           />
           <CardContent>
             <Typography className={classes.name} gutterBottom variant="h5" component="h2">

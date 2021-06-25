@@ -10,7 +10,7 @@ import Test2 from './components/Test2';
 function App() {
   const appUri = '/developer-test';
   const queryClient = new QueryClient()
-  const [filter, setFilter] = useState('bulbasaur');
+  const [filter, setFilter] = useState('');
   
   return (
     <>

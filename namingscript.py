@@ -11,6 +11,10 @@ if response.status_code==200:
 	pokemonList = data["results"]
 
 	for i in range(len(pokemonList)):
-		imgName = str(i+1) + '.png'
-		copyCommand = 'copy "..\\' + imgName + '" "./namedImages/' + pokemonList[i]["name"] + '.png"'
+		pokemon = pokemonList[i]["name"]
+		pokemonId = i+1
+
+		imgName = str(pokemonId) + '.png'
+		copyCommand = 'copy "..\\' + imgName + '" "./namedImages/' + pokemon + '.png"'
+		print(pokemonId, pokemon, copyCommand)
 		os.system(copyCommand)

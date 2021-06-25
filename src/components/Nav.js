@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
+import { AppContext } from './AppContext';
 import { Link } from 'react-router-dom';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -68,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Nav() {
     const classes = useStyles();
+		const { setFilter } = useContext(AppContext);
 
     return(
         <div className={classes.root}>
@@ -113,6 +115,7 @@ function Nav() {
 										input: classes.inputInput,
 									}}
 									inputProps={{ 'aria-label': 'search' }}
+									onChange={event => setFilter(event.target.value)}
 								/>
 							</div>
 						</Toolbar>

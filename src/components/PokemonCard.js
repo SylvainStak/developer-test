@@ -6,7 +6,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
-
 const useStyles = makeStyles({
   card: {
     width: 200,
@@ -14,8 +13,13 @@ const useStyles = makeStyles({
   },
   media: {
     height: 140,
-    backgroundSize: 60,
+    backgroundSize: 100,
   },
+  name: {
+    textAlign: 'center',
+    color: '#3477eb',
+    fontWeight: 'bold',
+  }
 });
 
 function PokemonCard(props) {
@@ -27,12 +31,12 @@ function PokemonCard(props) {
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            //image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.id}.png`}
-            image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png`}
+            image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.id}.png`}
+            //image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png`}
             title="Contemplative Reptile"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography className={classes.name} gutterBottom variant="h5" component="h2">
               {props.name}
             </Typography>
           </CardContent>

@@ -9,6 +9,7 @@ import Nav from './components/Nav';
 import Berries from './components/Berries';
 import Test2 from './components/Test2';
 import PokemonInfo from './components/PokemonInfo';
+import Error404 from './components/Error404';
 
 function App() {
   const queryClient = new QueryClient()
@@ -27,6 +28,8 @@ function App() {
               <Route path={`${utility.appUri}/berries`} exact component={Berries} />
               <Route path={`${utility.appUri}/test2`} exact component={Test2} />
               <Route path={`${utility.appUri}/info/:pokemonName`} exact component={PokemonInfo} />
+              {/* 404 REDIRECT */}
+              <Route component={Error404} />
             </Switch>
             <Footer/>
           </Router>

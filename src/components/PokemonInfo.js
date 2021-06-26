@@ -77,8 +77,9 @@ function PokemonInfo(props) {
                                               {staleTime: utility.reactQueryTimings.pokemonDetail.staleTime,
                                               cacheTime: utility.reactQueryTimings.pokemonDetail.cacheTime});
 
+  // Renders the chips component for each type
   const renderTypes = () =>
-    data.data.types.map(type =>
+    data && data.data.types.map(type =>
       <Chip
         key={type.type.name}
         label={type.type.name}
@@ -86,8 +87,9 @@ function PokemonInfo(props) {
         className={classes.typeChips}
         style={{ backgroundColor: utility.typeColors[type.type.name] }} />);
 
+  // Renders the row for each stat values
   const renderStatsTableRows = () =>
-    data.data.stats.map((row, index) => (
+    data && data.data.stats.map((row, index) => (
       <TableRow key={row.name}>
         <TableCell key={`${row.name}-stat-${index}`} component="th" scope="row" className={classes.colorWhite}>{row.stat.name}</TableCell>
         <TableCell key={`${row.name}-value-${index}`} align="right" className={classes.colorWhite}>{row.base_stat}</TableCell>
@@ -111,13 +113,13 @@ function PokemonInfo(props) {
           </Link>
           {/* BASE STATS */}
           <p className={classes.baseStatsContainer}>
-            <span key="weight" className={classes.baseStatsLabel}>Weight:</span> {data.data.weight}
-            <span key="base_experience" className={classes.baseStatsLabel}>Base Experience:</span> {data.data.base_experience}
+            <span key="weight" className={classes.baseStatsLabel}>Weight:</span> {data && data.data.weight}
+            <span key="base_experience" className={classes.baseStatsLabel}>Base Experience:</span> {data && data.data.base_experience}
           </p>
           {/* IMAGE */}
-          <img src={data.data.sprites.other.dream_world.front_default} className={classes.image} alt="pokemon front side"/>
+          <img src={data && data.data.sprites.other.dream_world.front_default} className={classes.image} alt="pokemon front side"/>
           {/* NAME */}
-          <h1 className={classes.name}>{data.data.name.toUpperCase()}</h1>
+          <h1 className={classes.name}>{data && data.data.name.toUpperCase()}</h1>
           {/* TYPES */}
           <div className={classes.types}>{renderTypes()}</div>
           {/* STATS TABLE */}

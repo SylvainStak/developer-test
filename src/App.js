@@ -8,6 +8,7 @@ import Nav from './components/Nav';
 import Test1 from './components/Test1';
 import Test2 from './components/Test2';
 import PokemonInfo from './components/PokemonInfo';
+import Footer from './components/Footer';
 
 function App() {
   const queryClient = new QueryClient()
@@ -26,6 +27,7 @@ function App() {
               <Route path={`${constants.appUri}/test2`} exact component={Test2} />
               <Route path={`${constants.appUri}/info/:pokemonName`} exact component={PokemonInfo} />
             </Switch>
+            <Footer/>
           </Router>
         </AppContext.Provider>
       </QueryClientProvider>

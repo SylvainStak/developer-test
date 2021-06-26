@@ -46,7 +46,7 @@ const useStyles = makeStyles({
     marginLeft: '3rem',
   },
   tableContainer: {
-    width: '400px',
+    width: '350px',
     margin: '0 auto',
     backgroundColor: '#333',
     marginTop: '2rem',
@@ -109,7 +109,7 @@ function PokemonInfo(props) {
             <span className={classes.baseStatsLabel}>Base Experience:</span> {data.data.base_experience}
           </p>
           {/* IMAGE */}
-          <img src={data.data.sprites.other.dream_world.front_default} className={classes.image} />
+          <img src={data.data.sprites.other.dream_world.front_default} className={classes.image} alt={`${data.data.name} front side`}/>
           {/* NAME */}
           <h1 className={classes.name}>{data.data.name.toUpperCase()}</h1>
           {console.log(data)}

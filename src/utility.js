@@ -1,5 +1,16 @@
-const constants = {
+const utility = {
   appUri: '/developer-test',
+  capitalizeName: name => name.charAt(0).toUpperCase() + name.slice(1),
+  reactQueryTimings: {
+    pokemonList: {
+      staleTime: 100000,
+      cacheTime: 100000,
+    },
+    pokemonDetail: {
+      staleTime: 100000,
+      cacheTime: 100000,
+    },
+  },
   typeColors: {
     'normal': '#AAB09F',
     'fighting': '#CB5F48',
@@ -24,4 +35,4 @@ const constants = {
   },
 };
 
-export default constants;
+export default utility;

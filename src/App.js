@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { AppContext } from './AppContext';
 import React, { useState } from 'react';
-import constants from './constants';
+import utility from './utility';
 import Home from './components/Home';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
@@ -22,10 +22,10 @@ function App() {
             <Nav/>
             <Switch>
               <Route path="/" exact component={Home} />
-              <Route path={`${constants.appUri}`} exact component={Home} />            
-              <Route path={`${constants.appUri}/test1`} exact component={Test1} />
-              <Route path={`${constants.appUri}/test2`} exact component={Test2} />
-              <Route path={`${constants.appUri}/info/:pokemonName`} exact component={PokemonInfo} />
+              <Route path={`${utility.appUri}`} exact component={Home} />
+              <Route path={`${utility.appUri}/test1`} exact component={Test1} />
+              <Route path={`${utility.appUri}/test2`} exact component={Test2} />
+              <Route path={`${utility.appUri}/info/:pokemonName`} exact component={PokemonInfo} />
             </Switch>
             <Footer/>
           </Router>

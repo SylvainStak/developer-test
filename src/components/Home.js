@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import PokemonCard from './PokemonCard';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import utility from '../utility';
 
 const useStyles = makeStyles({
   pokemonList: {
@@ -23,14 +24,17 @@ const useStyles = makeStyles({
 
 function Home() {
   const classes = useStyles();
-  const fetchPokemons = () => axios('https://pokeapi.co/api/v2/pokemon/?limit=151');
-  const { isLoading, error, data } = useQuery('pokemons', fetchPokemons, {staleTime: 100000, cacheTime: 100000});
   const { filter } = useContext(AppContext);
+  const fetchPokemons = () => axios('https://pokeapi.co/api/v2/pokemon/?limit=151');  
+  const { isLoading, error, data } = useQuery('pokemons',
+                                               fetchPokemons,
+                                               {staleTime: utility.reactQueryTimings.pokemonList.staleTime,
+                                               cacheTime: utility.reactQueryTimings.pokemonList.cacheTime});
 
   const renderPokemons = () => {
     let filteredData = data.data.results.filter(pokemon => pokemon.name.includes(filter));
     return filteredData.length > 0 ? filteredData.map((pokemon, index) => 
-    <PokemonCard key={index+1} id={index+1} name={pokemon.name} info={pokemon.url}/>) : 
+    <PokemonCard key={index+1} id={index+1} name={pokemon.name} info={pokemon.url}/>) :
     <div>{`No results for "${filter}"`}</div>
   }
 

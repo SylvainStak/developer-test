@@ -6,7 +6,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import constants from '../constants';
+import utility from '../utility';
 
 const useStyles = makeStyles({
   card: {
@@ -30,23 +30,22 @@ const useStyles = makeStyles({
 
 function PokemonCard(props) {
   const classes = useStyles();
-  const capitalizeName = name => name.charAt(0).toUpperCase() + name.slice(1);
 
   return (
     <>
       <Card className={classes.card}>
         <Link
-          to={`${constants.appUri}/info/${props.name}`}
+          to={`${utility.appUri}/info/${props.name}`}
           className={classes.link}
         >
           <CardActionArea>
             <CardMedia
               className={classes.media}
-              image={`${constants.appUri}/pokemon/${props.name}.png`}
+              image={`${utility.appUri}/pokemon/${props.name}.png`}
             />
             <CardContent>
               <Typography className={classes.name} gutterBottom variant="h5" component="h2">
-                {capitalizeName(props.name)}
+                {utility.capitalizeName(props.name)}
               </Typography>
             </CardContent>
           </CardActionArea>

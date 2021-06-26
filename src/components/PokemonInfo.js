@@ -5,7 +5,7 @@ import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Chip from '@material-ui/core/Chip';
-import constants from '../constants';
+import utility from '../utility';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -72,7 +72,10 @@ function PokemonInfo(props) {
   const { match } = props;
   const classes = useStyles();
   const fetchDetails = () => axios(`https://pokeapi.co/api/v2/pokemon/${match.params.pokemonName}`);
-  const { isLoading, error, data } = useQuery(match.params.pokemonName, fetchDetails, { staleTime: 100000, cacheTime: 100000 });
+  const { isLoading, error, data } = useQuery(match.params.pokemonName,
+                                              fetchDetails,
+                                              {staleTime: utility.reactQueryTimings.pokemonDetail.staleTime,
+                                              cacheTime: utility.reactQueryTimings.pokemonDetail.cacheTime});
 
   const renderTypes = () =>
     data.data.types.map(type =>
@@ -81,7 +84,7 @@ function PokemonInfo(props) {
         label={type.type.name}
         color='primary'
         className={classes.typeChips}
-        style={{ backgroundColor: constants.typeColors[type.type.name] }} />);
+        style={{ backgroundColor: utility.typeColors[type.type.name] }} />);
 
   const renderStatsTableRows = () =>
     data.data.stats.map((row, index) => (
@@ -99,7 +102,7 @@ function PokemonInfo(props) {
         <div className={classes.infoContainer}>
           {/* BACK LINK */}
           <Link
-            to={constants.appUri}
+            to={utility.appUri}
             className={classes.link}
           >
             <Button variant="contained" color="default">

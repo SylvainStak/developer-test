@@ -6,7 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
-import constants from '../constants';
+import utility from '../utility';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -77,19 +77,19 @@ function Nav() {
         <Toolbar>
           {/* HOMEPAGE LINK */}
           <div className={classes.linkContainer}>
-            <Link to={constants.appUri}>
+            <Link to={utility.appUri}>
               <h3 className={classes.title}>PokeAPI</h3>
             </Link>
           </div>
           {/* TEST1 LINK */}
           <div className={classes.linkContainer}>
-            <Link to={`${constants.appUri}/test1`}>
+            <Link to={`${utility.appUri}/test1`}>
               <h3 className={classes.title}>Test1</h3>
             </Link>
           </div>
           {/* TEST2 LINK */}
           <div className={classes.linkContainer}>
-            <Link to={`${constants.appUri}/test2`}>
+            <Link to={`${utility.appUri}/test2`}>
               <h3 className={classes.title}>Test2</h3>
             </Link>
           </div>

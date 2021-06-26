@@ -62,6 +62,10 @@ const useStyles = makeStyles({
   backArrow: {
     marginRight: '1rem',
   },
+  loader: {
+    paddingTop: '5rem',
+    marginLeft: '50%',
+  },
 });
 
 function PokemonInfo(props) {
@@ -73,26 +77,25 @@ function PokemonInfo(props) {
   const renderTypes = () =>
     data.data.types.map(type =>
       <Chip
+        key={type.type.name}
         label={type.type.name}
         color='primary'
         className={classes.typeChips}
         style={{ backgroundColor: constants.typeColors[type.type.name] }} />);
 
   const renderStatsTableRows = () =>
-    data.data.stats.map((row) => (
+    data.data.stats.map((row, index) => (
       <TableRow key={row.name}>
-        <TableCell component="th" scope="row" className={classes.colorWhite}>
-          {row.stat.name}
-        </TableCell>
-        <TableCell align="right" className={classes.colorWhite}>{row.base_stat}</TableCell>
-        <TableCell align="right" className={classes.colorWhite}>{row.effort}</TableCell>
+        <TableCell key={`${row.name}-stat-${index}`} component="th" scope="row" className={classes.colorWhite}>{row.stat.name}</TableCell>
+        <TableCell key={`${row.name}-value-${index}`} align="right" className={classes.colorWhite}>{row.base_stat}</TableCell>
+        <TableCell key={`${row.name}-effort-${index}`} align="right" className={classes.colorWhite}>{row.effort}</TableCell>
       </TableRow>
     ));
 
   return (
     <>
       {error && <div>Something went wrong ... try reloading (F5)</div>}
-      {isLoading ? <CircularProgress /> : (
+      {isLoading ? <CircularProgress className={classes.loader} /> : (
         <div className={classes.infoContainer}>
           {/* BACK LINK */}
           <Link
@@ -105,14 +108,13 @@ function PokemonInfo(props) {
           </Link>
           {/* BASE STATS */}
           <p className={classes.baseStatsContainer}>
-            <span className={classes.baseStatsLabel}>Weight:</span> {data.data.weight}
-            <span className={classes.baseStatsLabel}>Base Experience:</span> {data.data.base_experience}
+            <span key="weight" className={classes.baseStatsLabel}>Weight:</span> {data.data.weight}
+            <span key="base_experience" className={classes.baseStatsLabel}>Base Experience:</span> {data.data.base_experience}
           </p>
           {/* IMAGE */}
-          <img src={data.data.sprites.other.dream_world.front_default} className={classes.image} alt={`${data.data.name} front side`}/>
+          <img src={data.data.sprites.other.dream_world.front_default} className={classes.image} alt="pokemon front side"/>
           {/* NAME */}
           <h1 className={classes.name}>{data.data.name.toUpperCase()}</h1>
-          {console.log(data)}
           {/* TYPES */}
           <div className={classes.types}>{renderTypes()}</div>
           {/* STATS TABLE */}
@@ -120,9 +122,9 @@ function PokemonInfo(props) {
             <Table className={classes.table} size="small" aria-label="a dense table">
               <TableHead>
                 <TableRow>
-                  <TableCell className={classes.colorWhite}>Stat Name</TableCell>
-                  <TableCell align="right" className={classes.colorWhite}>Stat Value</TableCell>
-                  <TableCell align="right" className={classes.colorWhite}>Effort</TableCell>
+                  <TableCell key="stat-name" className={classes.colorWhite}>Stat Name</TableCell>
+                  <TableCell key="stat-value" align="right" className={classes.colorWhite}>Stat Value</TableCell>
+                  <TableCell key="stat-effort" align="right" className={classes.colorWhite}>Effort</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>

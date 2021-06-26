@@ -7,14 +7,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles({
-  card: {
-    width: 200,
-    margin: 10,
-  },
-  media: {
-    height: 140,
-    backgroundSize: 60,
-  },
   pokemonList: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -23,6 +15,9 @@ const useStyles = makeStyles({
   container: {
     backgroundColor: 'white',
     paddingTop: '5rem',
+  },
+  loader: {
+    marginLeft: '50%',
   }
 });
 
@@ -42,7 +37,11 @@ function Home() {
   return (
     <div className={classes.container}>
       {error && <div>Something went wrong ... try reloading (F5)</div>}
-      {isLoading ? <CircularProgress /> : <div className={classes.pokemonList}>{renderPokemons()}</div>}
+      {isLoading ?
+        <CircularProgress className={classes.loader} />
+        :
+        <div className={classes.pokemonList}>{renderPokemons()}</div>
+      }
     </div>
   );
 }

@@ -10,7 +10,7 @@ import constants from '../constants';
 
 const useStyles = makeStyles({
   card: {
-    width: 200,
+    width: 180,
     margin: 10,
     backgroundColor: 'lightyellow',
   },
@@ -30,6 +30,7 @@ const useStyles = makeStyles({
 
 function PokemonCard(props) {
   const classes = useStyles();
+  const capitalizeName = name => name.charAt(0).toUpperCase() + name.slice(1);
 
   return (
     <>
@@ -45,7 +46,7 @@ function PokemonCard(props) {
             />
             <CardContent>
               <Typography className={classes.name} gutterBottom variant="h5" component="h2">
-                {props.name}
+                {capitalizeName(props.name)}
               </Typography>
             </CardContent>
           </CardActionArea>

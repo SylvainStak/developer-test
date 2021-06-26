@@ -6,24 +6,25 @@ import utility from './utility';
 import Home from './components/Home';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
-import Test1 from './components/Test1';
+import Berries from './components/Berries';
 import Test2 from './components/Test2';
 import PokemonInfo from './components/PokemonInfo';
 
 function App() {
   const queryClient = new QueryClient()
   const [filter, setFilter] = useState('');
+  const [berryInfo, setBerryInfo] = useState('');
   
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <AppContext.Provider value={{ filter, setFilter }}>
+        <AppContext.Provider value={{ filter, setFilter, berryInfo, setBerryInfo }}>
           <Router>
             <Nav/>
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path={`${utility.appUri}`} exact component={Home} />
-              <Route path={`${utility.appUri}/test1`} exact component={Test1} />
+              <Route path={`${utility.appUri}/berries`} exact component={Berries} />
               <Route path={`${utility.appUri}/test2`} exact component={Test2} />
               <Route path={`${utility.appUri}/info/:pokemonName`} exact component={PokemonInfo} />
             </Switch>

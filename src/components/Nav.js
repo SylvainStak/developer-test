@@ -81,10 +81,10 @@ function Nav() {
               <h3 className={classes.title}>PokeAPI</h3>
             </Link>
           </div>
-          {/* TEST1 LINK */}
+          {/* BERRIES LINK */}
           <div className={classes.linkContainer}>
-            <Link to={`${utility.appUri}/test1`}>
-              <h3 className={classes.title}>Test1</h3>
+            <Link to={`${utility.appUri}/berries`}>
+              <h3 className={classes.title}>Berries</h3>
             </Link>
           </div>
           {/* TEST2 LINK */}

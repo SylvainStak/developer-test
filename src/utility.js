@@ -10,6 +10,14 @@ const utility = {
       staleTime: 100000,
       cacheTime: 100000,
     },
+    berryList: {
+      staleTime: 100000,
+      cacheTime: 100000,
+    },
+    berryDetail: {
+      staleTime: 100000,
+      cacheTime: 100000,
+    },
   },
   typeColors: {
     'normal': '#AAB09F',

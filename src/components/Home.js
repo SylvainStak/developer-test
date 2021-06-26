@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../AppContext';
+import { useQuery } from 'react-query';
+import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import PokemonCard from './PokemonCard';
-import {useQuery} from 'react-query';
-import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles({

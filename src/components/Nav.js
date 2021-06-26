@@ -75,34 +75,24 @@ function Nav() {
     <div className={classes.root}>
       <AppBar position="fixed">
         <Toolbar>
-
           {/* HOMEPAGE LINK */}
           <div className={classes.linkContainer}>
-            <Link
-              to={constants.appUri}
-            >
+            <Link to={constants.appUri}>
               <h3 className={classes.title}>PokeAPI</h3>
             </Link>
           </div>
-
           {/* TEST1 LINK */}
           <div className={classes.linkContainer}>
-            <Link
-              to={`${constants.appUri}/test1`}
-            >
+            <Link to={`${constants.appUri}/test1`}>
               <h3 className={classes.title}>Test1</h3>
             </Link>
           </div>
-
           {/* TEST2 LINK */}
           <div className={classes.linkContainer}>
-            <Link
-              to={`${constants.appUri}/test2`}
-            >
+            <Link to={`${constants.appUri}/test2`}>
               <h3 className={classes.title}>Test2</h3>
             </Link>
           </div>
-
           {/* SEARCH BAR */}
           <div className={classes.search}>
             <div className={classes.searchIcon}>

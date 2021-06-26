@@ -4,11 +4,11 @@ import { AppContext } from './AppContext';
 import React, { useState } from 'react';
 import constants from './constants';
 import Home from './components/Home';
+import Footer from './components/Footer';
 import Nav from './components/Nav';
 import Test1 from './components/Test1';
 import Test2 from './components/Test2';
 import PokemonInfo from './components/PokemonInfo';
-import Footer from './components/Footer';
 
 function App() {
   const queryClient = new QueryClient()

@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Chip from '@material-ui/core/Chip';
 import constants from '../constants';
 import Table from '@material-ui/core/Table';

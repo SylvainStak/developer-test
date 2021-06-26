@@ -1,14 +1,15 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { AppContext } from './components/AppContext';
+import { AppContext } from './AppContext';
 import React, { useState } from 'react';
+import constants from './constants';
 import Home from './components/Home';
 import Nav from './components/Nav';
 import Test1 from './components/Test1';
 import Test2 from './components/Test2';
+import PokemonInfo from './components/PokemonInfo';
 
 function App() {
-  const appUri = '/developer-test';
   const queryClient = new QueryClient()
   const [filter, setFilter] = useState('');
   
@@ -19,10 +20,11 @@ function App() {
           <Router>
             <Nav/>
             <Switch>
-              <Route path={`${appUri}`} exact component={Home} />
               <Route path="/" exact component={Home} />
-              <Route path={`${appUri}/test1`} exact component={Test1} />
-              <Route path={`${appUri}/test2`} exact component={Test2} />
+              <Route path={`${constants.appUri}`} exact component={Home} />            
+              <Route path={`${constants.appUri}/test1`} exact component={Test1} />
+              <Route path={`${constants.appUri}/test2`} exact component={Test2} />
+              <Route path={`${constants.appUri}/info/:pokemonName`} exact component={PokemonInfo} />
             </Switch>
           </Router>
         </AppContext.Provider>

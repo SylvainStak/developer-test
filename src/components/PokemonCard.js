@@ -5,11 +5,14 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
+import constants from '../constants';
 
 const useStyles = makeStyles({
   card: {
     width: 200,
     margin: 10,
+    backgroundColor: 'lightyellow',
   },
   media: {
     height: 140,
@@ -19,7 +22,10 @@ const useStyles = makeStyles({
     textAlign: 'center',
     color: '#3477eb',
     fontWeight: 'bold',
-  }
+  },
+  link: {
+    textDecoration: 'none',
+  },
 });
 
 function PokemonCard(props) {
@@ -28,17 +34,22 @@ function PokemonCard(props) {
   return (
     <>
       <Card className={classes.card}>
-        <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image={`/developer-test/pokemon/${props.name}.png`}
-          />
-          <CardContent>
-            <Typography className={classes.name} gutterBottom variant="h5" component="h2">
-              {props.name}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
+        <Link
+          to={`${constants.appUri}/info/${props.name}`}
+          className={classes.link}
+        >
+          <CardActionArea>
+            <CardMedia
+              className={classes.media}
+              image={`${constants.appUri}/pokemon/${props.name}.png`}
+            />
+            <CardContent>
+              <Typography className={classes.name} gutterBottom variant="h5" component="h2">
+                {props.name}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Link>
       </Card>
     </>
   );

@@ -1,5 +1,5 @@
-import React, { useState, useContext } from 'react';
-import { AppContext } from './AppContext';
+import React, { useContext } from 'react';
+import { AppContext } from '../AppContext';
 import axios from 'axios';
 import PokemonCard from './PokemonCard';
 import {useQuery} from 'react-query';
@@ -21,11 +21,10 @@ const useStyles = makeStyles({
     justifyContent: 'center',
   },
   container: {
-    backgroundColor: '#333',
+    backgroundColor: 'white',
     paddingTop: '5rem',
   }
 });
-
 
 function Home() {
   const classes = useStyles();
@@ -33,22 +32,17 @@ function Home() {
   const { isLoading, error, data } = useQuery('pokemons', fetchPokemons, {staleTime: 100000, cacheTime: 100000});
   const { filter } = useContext(AppContext);
 
-  const renderPokemons = () =>
-  data.data.results.map((pokemon, index) => 
-  <PokemonCard key={index+1} id={index+1} name={pokemon.name} info={pokemon.url}/>);
-
-  const renderPokemons2 = () => {
-    let rawData = data.data.results;
-    let newData = rawData.filter(pokemon => pokemon.name.includes(filter));
-    //console.log(console.log(newData));
-    return newData.map((pokemon, index) => 
-    <PokemonCard key={index+1} id={index+1} name={pokemon.name} info={pokemon.url}/>);
+  const renderPokemons = () => {
+    let filteredData = data.data.results.filter(pokemon => pokemon.name.includes(filter));
+    return filteredData.length > 0 ? filteredData.map((pokemon, index) => 
+    <PokemonCard key={index+1} id={index+1} name={pokemon.name} info={pokemon.url}/>) : 
+    <div>{`No results for "${filter}"`}</div>
   }
 
   return (
     <div className={classes.container}>
       {error && <div>Something went wrong ... try reloading (F5)</div>}
-      {isLoading ? <CircularProgress /> : <div className={classes.pokemonList}>{renderPokemons2()}</div>}
+      {isLoading ? <CircularProgress /> : <div className={classes.pokemonList}>{renderPokemons()}</div>}
     </div>
   );
 }

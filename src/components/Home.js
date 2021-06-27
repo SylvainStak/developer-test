@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
+import axios from 'axios';
 import { AppContext } from '../AppContext';
 import { useQuery } from 'react-query';
 import { makeStyles } from '@material-ui/core/styles';
-import axios from 'axios';
 import PokemonCard from './PokemonCard';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import utility from '../utility';

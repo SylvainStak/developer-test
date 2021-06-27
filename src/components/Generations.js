@@ -36,12 +36,7 @@ function Generations() {
     <div className={classes.generationsContainer}>
       <h1 className={classes.title}><em>GENERATIONS</em></h1>
       {error && <div>Something went wrong ... try reloading (F5)</div>}
-      {isLoading ? <CircularProgress className={classes.loader} /> : 
-      (
-        <>
-          {renderTypes()}
-        </>
-      )}
+      {isLoading ? <CircularProgress className={classes.loader} /> : <>{renderTypes()}</>}
     </div>
   );
 }

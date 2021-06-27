@@ -1,7 +1,7 @@
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { AppContext } from './AppContext';
-import React, { useState } from 'react';
 import utility from './utility';
 import Home from './components/Home';
 import Footer from './components/Footer';

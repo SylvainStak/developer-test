@@ -1,24 +1,6 @@
 const utility = {
   appUri: '/developer-test',
   capitalizeName: name => name.charAt(0).toUpperCase() + name.slice(1),
-  reactQueryTimings: {
-    pokemonList: {
-      staleTime: 100000,
-      cacheTime: 100000,
-    },
-    pokemonDetail: {
-      staleTime: 100000,
-      cacheTime: 100000,
-    },
-    berryList: {
-      staleTime: 100000,
-      cacheTime: 100000,
-    },
-    berryDetail: {
-      staleTime: 100000,
-      cacheTime: 100000,
-    },
-  },
   typeColors: {
     'normal': '#AAB09F',
     'fighting': '#CB5F48',
@@ -40,6 +22,32 @@ const utility = {
     'fairy': '#E397D1',
     'unknown': '#c8ccd1',
     'shadow': '#191a37',
+  },
+  reactQueryTimings: {
+    pokemonList: {
+      staleTime: 100000,
+      cacheTime: 100000,
+    },
+    pokemonDetail: {
+      staleTime: 100000,
+      cacheTime: 100000,
+    },
+    berryList: {
+      staleTime: 100000,
+      cacheTime: 100000,
+    },
+    berryDetail: {
+      staleTime: 100000,
+      cacheTime: 100000,
+    },
+    generationList: {
+      staleTime: 100000,
+      cacheTime: 100000,
+    },
+    generationDetail: {
+      staleTime: 100000,
+      cacheTime: 100000,
+    },
   },
 };
 

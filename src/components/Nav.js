@@ -75,7 +75,7 @@ function Nav() {
     <div className={classes.root}>
       <AppBar position="fixed">
         <Toolbar>
-          {/* HOMEPAGE LINK */}
+          {/* HOMEPAGE (POKEMON LIST) LINK */}
           <div className={classes.linkContainer}>
             <Link to={utility.appUri}>
               <h3 className={classes.title}>PokeAPI</h3>
@@ -87,10 +87,10 @@ function Nav() {
               <h3 className={classes.title}>Berries</h3>
             </Link>
           </div>
-          {/* TEST2 LINK */}
+          {/* GENERATIONS LINK */}
           <div className={classes.linkContainer}>
-            <Link to={`${utility.appUri}/test2`}>
-              <h3 className={classes.title}>Test2</h3>
+            <Link to={`${utility.appUri}/generations`}>
+              <h3 className={classes.title}>Generations</h3>
             </Link>
           </div>
           {/* SEARCH BAR */}

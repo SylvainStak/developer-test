@@ -7,7 +7,7 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
 import Berries from './components/Berries';
-import Test2 from './components/Test2';
+import Generations from './components/Generations';
 import PokemonInfo from './components/PokemonInfo';
 import Error404 from './components/Error404';
 
@@ -26,7 +26,7 @@ function App() {
               <Route path="/" exact component={Home} />
               <Route path={`${utility.appUri}`} exact component={Home} />
               <Route path={`${utility.appUri}/berries`} exact component={Berries} />
-              <Route path={`${utility.appUri}/test2`} exact component={Test2} />
+              <Route path={`${utility.appUri}/generations`} exact component={Generations} />
               <Route path={`${utility.appUri}/info/:pokemonName`} exact component={PokemonInfo} />
               {/* 404 REDIRECT */}
               <Route component={Error404} />
